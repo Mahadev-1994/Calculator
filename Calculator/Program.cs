@@ -91,7 +91,7 @@ void ShowMenu()
     Console.WriteLine("7) Percentage (a of b%)");
     Console.WriteLine("C) Clear");
     Console.WriteLine("E) Exit");
-    Console.WriteLine();
+    Console.WriteLine("-------------------");
 }
 
 // Memory holds the last computed result (persistent across operations in the session).
