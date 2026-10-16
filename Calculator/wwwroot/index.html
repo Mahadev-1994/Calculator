@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator - Web UI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <h1>Calculator</h1>
+            
+            <div class="display">
+                <input type="text" id="result" readonly placeholder="0" class="result-display">
+            </div>
+
+            <div class="operations">
+                <!-- Binary Operations (require two operands) -->
+                <div class="operation-group">
+                    <h3>Binary Operations</h3>
+                    
+                    <div class="input-group">
+                        <label for="add-a">First Number:</label>
+                        <input type="number" id="add-a" placeholder="Enter number" step="any">
+                        <label for="add-b">Second Number:</label>
+                        <input type="number" id="add-b" placeholder="Enter number" step="any">
+                        <button onclick="performOperation('add')">Add (+)</button>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="sub-a">First Number:</label>
+                        <input type="number" id="sub-a" placeholder="Enter number" step="any">
+                        <label for="sub-b">Second Number:</label>
+                        <input type="number" id="sub-b" placeholder="Enter number" step="any">
+                        <button onclick="performOperation('subtract')">Subtract (-)</button>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="mul-a">First Number:</label>
+                        <input type="number" id="mul-a" placeholder="Enter number" step="any">
+                        <label for="mul-b">Second Number:</label>
+                        <input type="number" id="mul-b" placeholder="Enter number" step="any">
+                        <button onclick="performOperation('multiply')">Multiply (×)</button>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="div-a">Numerator:</label>
+                        <input type="number" id="div-a" placeholder="Enter numerator" step="any">
+                        <label for="div-b">Denominator:</label>
+                        <input type="number" id="div-b" placeholder="Enter denominator" step="any">
+                        <button onclick="performOperation('divide')">Divide (÷)</button>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="pow-a">Base:</label>
+                        <input type="number" id="pow-a" placeholder="Enter base" step="any">
+                        <label for="pow-b">Exponent:</label>
+                        <input type="number" id="pow-b" placeholder="Enter exponent" step="any">
+                        <button onclick="performOperation('power')">Power (^)</button>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="perc-a">Value:</label>
+                        <input type="number" id="perc-a" placeholder="Enter value" step="any">
+                        <label for="perc-b">Percentage (%):</label>
+                        <input type="number" id="perc-b" placeholder="Enter percentage" step="any">
+                        <button onclick="performOperation('percentage')">Calculate %</button>
+                    </div>
+                </div>
+
+                <!-- Unary Operations (require one operand) -->
+                <div class="operation-group">
+                    <h3>Unary Operations</h3>
+                    
+                    <div class="input-group">
+                        <label for="sqrt-a">Number:</label>
+                        <input type="number" id="sqrt-a" placeholder="Enter number" step="any">
+                        <button onclick="performOperation('sqrt')">Square Root (√)</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="clear-btn" onclick="clearAll()">Clear All</button>
+        </div>
+
+        <div class="history">
+            <h3>Calculation History</h3>
+            <div id="history-list" class="history-list"></div>
+            <button class="clear-history-btn" onclick="clearHistory()">Clear History</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
