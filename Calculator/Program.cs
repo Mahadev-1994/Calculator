@@ -81,7 +81,7 @@ void ShowMenu()
 {
     Console.WriteLine();
     Console.WriteLine("Standard Calculator");
-    Console.WriteLine("-------------------");
+    Console.WriteLine("--------Changes Done in Main Branch----------");
     Console.WriteLine("1) Add");
     Console.WriteLine("2) Subtract");
     Console.WriteLine("3) Multiply");
@@ -91,7 +91,7 @@ void ShowMenu()
     Console.WriteLine("7) Percentage (a of b%)");
     Console.WriteLine("C) Clear");
     Console.WriteLine("E) Exit");
-    Console.WriteLine("-------------------");
+    Console.WriteLine("----------Changes Done in Main Branch---------");
 }
 
 // Memory holds the last computed result (persistent across operations in the session).
