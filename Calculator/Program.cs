@@ -104,7 +104,6 @@ while (running)
     var choice = Console.ReadLine();
     if (string.IsNullOrWhiteSpace(choice)) continue;
     choice = choice.Trim().ToUpperInvariant();
-
     try
     {
         switch (choice)
