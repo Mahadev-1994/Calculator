@@ -2,7 +2,7 @@
   "profiles": {
     "Calculator": {
       "commandName": "Project",
-      "applicationUrl": "http://localhost:5000/index.html",
+      "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
