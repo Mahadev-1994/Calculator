@@ -28,7 +28,8 @@ var app = builder.Build();
 
 app.UseCors();
 
-// Serve static files (HTML, CSS, JS)
+// Serve static files (HTML, CSS, JS) and set index.html as default
+app.UseDefaultFiles(); // must come before UseStaticFiles
 app.UseStaticFiles();
 
 // API endpoints for calculator operations
@@ -63,9 +64,6 @@ app.MapPost("/api/calculate/{operation}", (string operation, CalculationRequest 
         return Results.BadRequest(new { success = false, error = ex.Message });
     }
 });
-
-// Serve the calculator UI
-app.MapGet("/", () => Results.File("wwwroot/index.html", "text/html"));
 
 app.Run();
 
