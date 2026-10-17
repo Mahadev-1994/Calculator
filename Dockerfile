@@ -2,14 +2,15 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0-windowsservercore-ltsc2022 AS build
 WORKDIR /src
 
-# Copy project file and restore dependencies
+# Copy ONLY the project file first — this layer is cached unless .csproj changes
 COPY Calculator/Calculator.csproj ./Calculator/
-RUN dotnet restore ./Calculator/Calculator.csproj
+RUN dotnet restore ./Calculator/Calculator.csproj --no-cache
 
-# Copy the rest of the source and publish
+# Copy the rest of the source
 COPY Calculator/ ./Calculator/
-WORKDIR /src/Calculator
-RUN dotnet publish Calculator.csproj -c Release -o /app/publish --no-restore
+
+# Publish in Release mode — self-contained=false keeps it smaller
+RUN dotnet publish ./Calculator/Calculator.csproj -c Release -o /app/publish --no-restore
 
 # ── Stage 2: Runtime ─────────────────────────────────────────────────────────
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-windowsservercore-ltsc2022 AS runtime
